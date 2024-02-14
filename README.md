@@ -37,11 +37,13 @@ actually SYN flooding difficult. Since the SYN flooding was not the main focus o
 need to ensure that the data from ARP table would not go away. We set a flag so Machine A knows to keep the ipand MAC addresses from the server permanently.
 
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task1%20simulated%20syn%20flooding.png)
+
 example of the trusted machine's ARP table
 
 Task 2.1 Spoof 1st TCP connection: 
 -
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/Task2_1%20spoof%201st%20tcp.png)
+
 Following code spoofed a SYN packet sent as the "trusted server" to Machine A to initialize the 3 way handshake. In the main() function, we implemented 
 time.sleep for 10 seconds to wait for Machine A to send back a [ACK, SYN] packet to our attacker machine. Our spoof_pkt function then sends back another 
 packet in response to finish the 3 way handshake. Notice, the variables from spoof_pkt, specifically the sequence number, have to be based on the previous
@@ -50,6 +52,7 @@ packet to keep the 3 way handshake successful.
 
 **Results**
 ![Model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_1%20results.png)
+
 Results captured from Wireshark. The 1st line is the 3 way handshake being initialized, the 3rd line is Machine A's response, and the 7th line is the completed
 handshake from our end. 
 
@@ -57,6 +60,7 @@ Task 2.1.1: Spoofing a rsh packet:
 -
 We need to add a section in our previous code for a spoofed RSH packet. 
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_1_1%20spoofing%20rsh%20packet.png)
+
 We can see that Wireshark shows that our RSH packet was sent successfully and a session was "established", however, no data can be sent through _yet_.
 
 Task 2.2: Spoofing a 2nd TCP connection:
@@ -69,6 +73,7 @@ We can also see our wireshark results. Our code is shown successul from the last
 
 **Results**
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_2%20results.png)
+
 The above photo is the command line running the code. First code from Task 2.1 is ran first to establish the RSH connection. After running the packets,
 second_tcp_spoof is ran to continue the rsh connection. RSH connections use port 9090 instead of the previous ports used. 
 
@@ -82,8 +87,10 @@ The follwing screenshot is just the two pieces of code from above combined into 
 
 **results**
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20terminal.png)
-Final results from command line. The Mitnick backdoor ended quickly. The RSH command was able to be run from the attackers machine which is not supposed to 
+
+inal results from command line. The Mitnick backdoor ended quickly. The RSH command was able to be run from the attackers machine which is not supposed to 
 be possible. Machine A is now convinced that the attacker machine is the trusted server that was saved in it's .rhosts file.
 
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20cat%20command.png)
+
 Machine A's .rhosts file has been altered to only have "+ +" which means uses from any IP can execute commands from it's terminal
