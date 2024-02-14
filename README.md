@@ -51,6 +51,7 @@ packet to keep the 3 way handshake successful.
 
 
 **Results**
+
 ![Model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_1%20results.png)
 
 Results captured from Wireshark. The 1st line is the 3 way handshake being initialized, the 3rd line is Machine A's response, and the 7th line is the completed
@@ -72,6 +73,7 @@ We can also see our wireshark results. Our code is shown successul from the last
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_2%20spoofing%202nd%20tcp.png)
 
 **Results**
+
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_2%20results.png)
 
 The above photo is the command line running the code. First code from Task 2.1 is ran first to establish the RSH connection. After running the packets,
@@ -86,9 +88,10 @@ The follwing screenshot is just the two pieces of code from above combined into 
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor(complete%20code).png)
 
 **results**
+
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20terminal.png)
 
-inal results from command line. The Mitnick backdoor ended quickly. The RSH command was able to be run from the attackers machine which is not supposed to 
+Final results from command line. The Mitnick backdoor ended quickly. The RSH command was able to be run from the attackers machine which is not supposed to 
 be possible. Machine A is now convinced that the attacker machine is the trusted server that was saved in it's .rhosts file.
 
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20cat%20command.png)
