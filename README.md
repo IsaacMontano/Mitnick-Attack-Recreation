@@ -40,6 +40,7 @@ need to ensure that the data from ARP table would not go away. We set a flag so 
 example of the trusted machine's ARP table
 
 Task 2.1 Spoof 1st TCP connection: 
+-
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/Task2_1%20spoof%201st%20tcp.png)
 Following code spoofed a SYN packet sent as the "trusted server" to Machine A to initialize the 3 way handshake. In the main() function, we implemented 
 time.sleep for 10 seconds to wait for Machine A to send back a [ACK, SYN] packet to our attacker machine. Our spoof_pkt function then sends back another 
@@ -65,3 +66,24 @@ take place, the rsh session will stop. The following program spoofs a SYN+ACK re
 
 We can also see our wireshark results. Our code is shown successul from the last packet in this next screenshot, and the connection is continued!
 ![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_2%20spoofing%202nd%20tcp.png)
+
+**Results**
+![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task2_2%20results.png)
+The above photo is the command line running the code. First code from Task 2.1 is ran first to establish the RSH connection. After running the packets,
+second_tcp_spoof is ran to continue the rsh connection. RSH connections use port 9090 instead of the previous ports used. 
+
+The photo section below checks Machine A if the folder was created (that was the data we had from our previous rsh packet) We can clearly see that our
+dummy folder was created. _Success!_
+
+Task 3:Setup a Backdoor
+-
+The follwing screenshot is just the two pieces of code from above combined into one. 
+![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor(complete%20code).png)
+
+**results**
+![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20terminal.png)
+Final results from command line. The Mitnick backdoor ended quickly. The RSH command was able to be run from the attackers machine which is not supposed to 
+be possible. Machine A is now convinced that the attacker machine is the trusted server that was saved in it's .rhosts file.
+
+![model](https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/task3%20setup%20backdoor%20results%20cat%20command.png)
+Machine A's .rhosts file has been altered to only have "+ +" which means uses from any IP can execute commands from it's terminal
