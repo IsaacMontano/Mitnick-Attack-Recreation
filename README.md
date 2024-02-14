@@ -10,3 +10,4 @@ network security. Mitnick exploited vulnerabilities in the TCP protocol and trus
 the aim of accessing code he needed to hack into the cellular network. Host A was the machine that Mitnick wanted to attack and Host B was 
 a trusted server. Mitnick had to impersonate the trusted server so he did not need to provide a password for Host A. 
 
+![alt text][(https://github.com/IsaacMontano/Mitnick-Attack-Recreation/blob/main/mitnick%20presentation%20photos/Abstract.png)]
